@@ -9,6 +9,8 @@ This is a tiny example app made to show a few features of Ash. These features in
 * AshAdmin
 * PubSub Notifiers
 
+This was made for a youtube video with LiveView Mastery and as such there aren't really any docs here. The idea is to provide the code for perusal, but I suggest watching the video (which should be out very soon!)
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
