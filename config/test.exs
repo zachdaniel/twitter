@@ -13,12 +13,16 @@ config :twitter, Twitter.Repo,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
+secret_key_base = "IJnp77YtAVszKAGuZrGxZ8dvmYiRHjeW9rSVgr/MMEtwvMLas3M7NcdLgby4rZ1N"
+
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
 config :twitter, TwitterWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "IJnp77YtAVszKAGuZrGxZ8dvmYiRHjeW9rSVgr/MMEtwvMLas3M7NcdLgby4rZ1N",
+  secret_key_base: secret_key_base,
   server: false
+
+config :twitter, token_signing_secret: secret_key_base
 
 # In test we don't send emails.
 config :twitter, Twitter.Mailer, adapter: Swoosh.Adapters.Test

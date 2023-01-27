@@ -12,6 +12,8 @@ config :ash, :use_all_identities_in_manage_relationship?, false
 config :twitter,
   ecto_repos: [Twitter.Repo]
 
+config :twitter, ash_apis: [Twitter.Accounts, Twitter.Tweets]
+
 # Configures the endpoint
 config :twitter, TwitterWeb.Endpoint,
   url: [host: "localhost"],

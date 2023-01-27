@@ -10,6 +10,8 @@ config :twitter, Twitter.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+secret_key_base = "waWRr0qfV6sfabi59OizFKEzSYNJ1DhSUTkQ6H5wRYTn81NukUDI5r7zHWQ9Lgsr"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -23,11 +25,15 @@ config :twitter, TwitterWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "waWRr0qfV6sfabi59OizFKEzSYNJ1DhSUTkQ6H5wRYTn81NukUDI5r7zHWQ9Lgsr",
+  secret_key_base: secret_key_base,
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
+
+config :ash, :pub_sub, debug?: true
+
+config :twitter, token_signing_secret: secret_key_base
 
 # ## SSL Support
 #

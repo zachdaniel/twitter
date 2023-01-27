@@ -33,8 +33,13 @@ defmodule Twitter.MixProject do
   defp deps do
     [
       # Ash
-      {:ash, "~> 2.5.6"},
-      {:ash_postgres, "~> 1.3.3"},
+      {:ash, "~> 2.5"},
+      {:ash_postgres, "~> 1.3"},
+      {:ash_authentication, "~> 3.7"},
+      {:ash_phoenix, "~> 1.2"},
+      {:phoenix_view, "~> 2.0"},
+      {:ash_authentication_phoenix, "~> 1.4"},
+      {:ash_admin, "~> 0.7.1"},
       # Phoenix
       {:phoenix, "~> 1.7.0-rc.0", override: true},
       {:phoenix_ecto, "~> 4.4"},

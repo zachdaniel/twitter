@@ -11,7 +11,21 @@
     <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
     </script>
   </head>
-  <body class="bg-white antialiased">
+  <body class={if @live_action == :sign_in, do: "bg-white dark:bg-black antialiased", else: "antialiased"}>
+    <%= case live_flash(@flash, :info) do %>
+      <% nil -> %>
+      <% flash -> %>
+        <p class="bg-blue-500 text-white pl-8 p-6 m-6 rounded-lg" role="alert" phx-click="lv:clear-flash" phx-value-key="info">
+          <%= flash %>
+        </p>
+    <% end %>
+    <%= case live_flash(@flash, :error) do %>
+      <% nil -> %>
+      <% flash -> %>
+        <p class="alert alert-danger bg-red-500 text-white pl-8 p-6 m-6 m-6 rounded-lg" role="alert" phx-click="lv:clear-flash" phx-value-key="error">
+          <%= flash %>
+        </p>
+    <% end %>
     <%= @inner_content %>
   </body>
 </html>

@@ -1,0 +1,31 @@
+<.header>
+  Tweet <%= @tweet.id %>
+  <:subtitle>This is a tweet record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/tweets/#{@tweet}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit tweet</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Text"><%= @tweet.text %></:item>
+</.list>
+
+<.back navigate={~p"/tweets"}>Back to tweets</.back>
+
+<.modal
+  :if={@live_action == :edit}
+  id="tweet-modal"
+  show
+  on_cancel={JS.patch(~p"/tweets/#{@tweet}")}
+>
+  <.live_component
+    module={TwitterWeb.TweetLive.FormComponent}
+    id={@tweet.id}
+    title={@page_title}
+    action={@live_action}
+    tweet={@tweet}
+    navigate={~p"/tweets/#{@tweet}"}
+  />
+</.modal>
