@@ -1,5 +1,14 @@
 # Twitter
 
+This is a tiny example app made to show a few features of Ash. These features include:
+
+* Core behavior like attributes/relationships
+* Advanced core tools like calculations & aggregates
+* AshAuthentication
+* AshPhoenix tools to integrate with Phoenix
+* AshAdmin
+* PubSub Notifiers
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
